@@ -4,5 +4,7 @@
 
 int main()
 {
+    game_state* initial_state = init();
+    free_state(initial_state);
     exit(0);
 }
