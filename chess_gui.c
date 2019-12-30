@@ -8,6 +8,8 @@
 
 static const char PIECE_CHARACTERS[6] = {'r','n','b','Q','K','p'};
 
+static unsigned CONSOLE_WIDTH, CONSOLE_HEIGHT;
+
 void print_state(game_state* state)
 {
     for (int i = 0; i < 8; i++)
@@ -43,7 +45,7 @@ void print_state(game_state* state)
                         attron(COLOR_PAIR(BLACK_OVER_BLACK));
                 }
             }
-            mvaddch(i, j, piece_char);
+            mvaddch(i + (CONSOLE_HEIGHT * 0.3), j + (CONSOLE_WIDTH * 0.45), piece_char);
         }
     }
     refresh();
@@ -60,4 +62,7 @@ void init_screen()
     init_pair(2, COLOR_WHITE, COLOR_MAGENTA);
     init_pair(3, COLOR_BLACK, COLOR_MAGENTA);
     init_pair(4, COLOR_BLACK, COLOR_YELLOW);
+    box(stdscr, ACS_VLINE, ACS_HLINE );
+    getmaxyx(stdscr, CONSOLE_HEIGHT, CONSOLE_WIDTH);
+    mvwprintw( stdscr, CONSOLE_HEIGHT / 10, CONSOLE_WIDTH * 0.35, "Ricardo: a simple chess engine");
 }
