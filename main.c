@@ -3,6 +3,7 @@
 #include "startup_chess.h"
 #include "chess_gui.h"
 #include "curses.h"
+#include "chess_logic.h"
 
 int main()
 {

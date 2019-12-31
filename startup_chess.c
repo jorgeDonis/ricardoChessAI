@@ -39,8 +39,10 @@ square** init_board()
 game_state* init()
 {
     game_state* state = (game_state*) malloc (sizeof(game_state));
-    state->castle_black = false;
-    state->castle_white = false;
+    state->long_castle_white = false;
+    state->long_castle_black = false;
+    state->short_castle_white = false;
+    state->short_castle_black = false;
     state->en_passant_pawn = NULL;
     state->board = init_board();
     return state;

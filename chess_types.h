@@ -21,7 +21,8 @@ struct square
 struct game_state
 {
     square** board;
-    bool castle_white, castle_black;
+    bool long_castle_white, short_castle_white;
+    bool long_castle_black, short_castle_black;
     square* en_passant_pawn;
 };
 
